@@ -13,7 +13,7 @@ function main(){
         touch scan.txt
     fi
     mv scan.txt previous_scan.txt
-    sudo nmap -n -sn --max-parallelism 100 "10.10.10.0/24" > scan.txt
+    nmap -n -sn --max-parallelism 100 "10.10.10.0/24" > scan.txt
     diff previous_scan.txt scan.txt | grep "10.10" > difference.txt
     computers="difference.txt"
     if [ -s ${computers} ];then
